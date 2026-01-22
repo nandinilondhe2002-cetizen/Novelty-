@@ -76,5 +76,24 @@
     <footer>
         <p>&copy; 2026 Shopping Website</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchButton = document.querySelector('.search-bar button');
+            const searchInput = document.querySelector('.search-bar input');
+            const products = document.querySelectorAll('.product');
+
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value.trim().toLowerCase();
+                products.forEach(product => {
+                    const name = product.querySelector('h3').textContent.toLowerCase();
+                    if (name.includes(query)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
